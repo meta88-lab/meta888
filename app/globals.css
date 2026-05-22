@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-gold: #F5A800;
+  --color-blue: #00AAFF;
+  --color-navy: #0D1B2E;
+  --color-flame: #E84E0F;
+  --color-dark: #070F1A;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #070F1A;
+  color: #ffffff;
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #070F1A;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #F5A800, #00AAFF);
+  border-radius: 10px;
+}
+
+/* ──── Shimmer Button ──── */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.22),
+    transparent
+  );
+  transform: skewX(-15deg);
+  transition: left 0.65s ease;
+  pointer-events: none;
+}
+.btn-shimmer:hover::before {
+  left: 160%;
+}
+
+/* ──── Glow text utilities ──── */
+.text-glow-gold {
+  text-shadow: 0 0 20px rgba(245, 168, 0, 0.5), 0 0 40px rgba(245, 168, 0, 0.3);
+}
+.text-glow-blue {
+  text-shadow: 0 0 20px rgba(0, 170, 255, 0.5), 0 0 40px rgba(0, 170, 255, 0.3);
+}
+
+/* ──── Gradient border card utility ──── */
+.card-gold-border {
+  background: linear-gradient(145deg, #0D1B2E, #111827);
+  border: 1px solid rgba(245, 168, 0, 0.15);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.card-gold-border:hover {
+  border-color: rgba(245, 168, 0, 0.4);
+  box-shadow: 0 0 25px rgba(245, 168, 0, 0.12);
+}
+.card-blue-border {
+  background: linear-gradient(145deg, #0D1B2E, #111827);
+  border: 1px solid rgba(0, 170, 255, 0.2);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.card-blue-border:hover {
+  border-color: rgba(0, 170, 255, 0.5);
+  box-shadow: 0 0 25px rgba(0, 170, 255, 0.15);
+}
+
+/* ──── Section heading underline ──── */
+.gold-underline {
+  display: inline-block;
+  position: relative;
+}
+.gold-underline::after {
+  content: '';
+  display: block;
+  width: 60%;
+  height: 3px;
+  margin: 8px auto 0;
+  background: linear-gradient(90deg, #F5A800, #00AAFF);
+  border-radius: 2px;
+}
