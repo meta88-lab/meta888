@@ -17,6 +17,8 @@ const HAS_WHITE_BG = false;
 interface LogoImageProps {
   /** Display height in px — width scales proportionally */
   height?: number;
+  /** Accepted for backwards compat but ignored — width is auto from height */
+  width?: number;
   className?: string;
 }
 
