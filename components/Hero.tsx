@@ -27,7 +27,8 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative flex items-center justify-center overflow-hidden"
+      style={{ minHeight: "82vh" }}
       style={{
         background:
           "radial-gradient(ellipse at 50% 35%, #0D1B2E 0%, #070F1A 65%)",
@@ -83,6 +84,24 @@ export default function Hero() {
           }}
         >
           {SUITS[f.suit]}
+        </div>
+      ))}
+
+      {/* Cartoon floating coins + stars */}
+      {[
+        { emoji: "🪙", top: "15%", left: "18%",  size: "2rem", delay: "0s" },
+        { emoji: "⭐", top: "20%", right: "18%",  size: "1.8rem", delay: "0.8s" },
+        { emoji: "💎", top: "70%", left: "10%",  size: "1.6rem", delay: "1.5s" },
+        { emoji: "🪙", top: "65%", right: "12%", size: "2rem",   delay: "0.4s" },
+        { emoji: "🌟", top: "80%", left: "35%",  size: "1.4rem", delay: "2s" },
+        { emoji: "💰", top: "10%", left: "55%",  size: "1.5rem", delay: "1s" },
+      ].map((c, i) => (
+        <div
+          key={`coin-${i}`}
+          className="absolute select-none pointer-events-none animate-float-up"
+          style={{ top: c.top, left: c.left, right: c.right, fontSize: c.size, animationDelay: c.delay, zIndex: 1 }}
+        >
+          {c.emoji}
         </div>
       ))}
 

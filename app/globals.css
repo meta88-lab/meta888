@@ -108,3 +108,56 @@ body {
   background: linear-gradient(90deg, #F5A800, #00AAFF);
   border-radius: 2px;
 }
+
+/* ──── Cartoon Animations ──── */
+@keyframes coinSpin {
+  0%   { transform: rotateY(0deg) scale(1); }
+  50%  { transform: rotateY(90deg) scale(1.15); }
+  100% { transform: rotateY(0deg) scale(1); }
+}
+@keyframes starPop {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+  50%       { transform: scale(1.5) rotate(180deg); opacity: 1; }
+}
+@keyframes floatUp {
+  0%   { transform: translateY(0px) rotate(-5deg); }
+  50%  { transform: translateY(-16px) rotate(5deg); }
+  100% { transform: translateY(0px) rotate(-5deg); }
+}
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-8deg) scale(1); }
+  50%       { transform: rotate(8deg) scale(1.1); }
+}
+@keyframes hotPulse {
+  0%, 100% { box-shadow: 0 0 6px #E84E0F, 0 0 14px #E84E0F; opacity: 1; }
+  50%       { box-shadow: 0 0 18px #FF6B35, 0 0 36px #FF6B35; opacity: 0.85; }
+}
+@keyframes cardShine {
+  0%   { left: -80%; }
+  100% { left: 160%; }
+}
+@keyframes numberRoll {
+  0%   { transform: translateY(0); opacity: 1; }
+  45%  { transform: translateY(-110%); opacity: 0; }
+  55%  { transform: translateY(110%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.animate-coin-spin { animation: coinSpin  3s   ease-in-out infinite; }
+.animate-star-pop  { animation: starPop   2.5s ease-in-out infinite; }
+.animate-float-up  { animation: floatUp   3.5s ease-in-out infinite; }
+.animate-wiggle    { animation: wiggle    2.2s ease-in-out infinite; }
+.animate-hot-pulse { animation: hotPulse  1.5s ease-in-out infinite; }
+
+/* game card shine sweep */
+.game-card { position: relative; overflow: hidden; }
+.game-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -80%;
+  width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transform: skewX(-15deg);
+  pointer-events: none;
+  z-index: 10;
+}
+.game-card:hover::before { animation: cardShine 0.65s ease forwards; }

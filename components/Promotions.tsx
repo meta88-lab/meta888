@@ -39,7 +39,7 @@ export default function Promotions() {
   return (
     <section
       id="promotions"
-      className="py-20 md:py-28 px-4"
+      className="py-12 px-4"
       style={{ background: "linear-gradient(180deg, #070F1A 0%, #0A1424 100%)" }}
     >
       <div className="max-w-7xl mx-auto">

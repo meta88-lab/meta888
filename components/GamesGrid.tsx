@@ -5,169 +5,229 @@ import { motion } from "framer-motion";
 const GAMES = [
   {
     name: "Mega888",
-    category: "Slot Game",
+    category: "SLOT GAME",
     emoji: "🎰",
-    accent: "#F5A800",
-    desc: "Most popular slot platform in Malaysia",
+    stars: ["⭐", "💎", "7️⃣"],
+    bg: "linear-gradient(160deg, #2d0060 0%, #7c3aed 55%, #c026d3 100%)",
+    border: "#c026d3",
+    hot: true,
   },
   {
     name: "Pussy888",
-    category: "Slot Game",
-    emoji: "🃏",
-    accent: "#00AAFF",
-    desc: "Classic slots with massive jackpots",
-  },
-  {
-    name: "Live Roulette",
-    category: "Live Casino",
-    emoji: "🎡",
-    accent: "#E84E0F",
-    desc: "Real dealers, real thrills, real winnings",
-  },
-  {
-    name: "Blackjack VIP",
-    category: "Table Game",
-    emoji: "♠️",
-    accent: "#F5A800",
-    desc: "High stakes blackjack with VIP treatment",
+    category: "SLOT GAME",
+    emoji: "🌸",
+    stars: ["💕", "✨", "🌺"],
+    bg: "linear-gradient(160deg, #4a0010 0%, #be123c 55%, #fb7185 100%)",
+    border: "#fb7185",
+    badge: "NEW",
   },
   {
     name: "Dragon Tiger",
-    category: "Live Casino",
+    category: "LIVE CASINO",
     emoji: "🐉",
-    accent: "#00AAFF",
-    desc: "Fast-paced Asian favourite live game",
+    stars: ["🔥", "⚡", "💥"],
+    bg: "linear-gradient(160deg, #431407 0%, #c2410c 55%, #fb923c 100%)",
+    border: "#fb923c",
+    hot: true,
+  },
+  {
+    name: "Blackjack VIP",
+    category: "TABLE GAME",
+    emoji: "♠️",
+    stars: ["💰", "👑", "🎩"],
+    bg: "linear-gradient(160deg, #111 0%, #374151 55%, #d97706 100%)",
+    border: "#d97706",
+  },
+  {
+    name: "Live Roulette",
+    category: "LIVE CASINO",
+    emoji: "🎡",
+    stars: ["♥️", "♦️", "♣️"],
+    bg: "linear-gradient(160deg, #0c1445 0%, #1e3a8a 55%, #38bdf8 100%)",
+    border: "#38bdf8",
   },
   {
     name: "Sports Betting",
-    category: "Sports",
+    category: "SPORTS",
     emoji: "⚽",
-    accent: "#E84E0F",
-    desc: "Football, basketball, esports & more",
+    stars: ["🏆", "🎯", "🏅"],
+    bg: "linear-gradient(160deg, #052e16 0%, #166534 55%, #4ade80 100%)",
+    border: "#4ade80",
+  },
+  {
+    name: "Fishing Fever",
+    category: "ARCADE",
+    emoji: "🐟",
+    stars: ["🦈", "💰", "🌊"],
+    bg: "linear-gradient(160deg, #082f49 0%, #0369a1 55%, #22d3ee 100%)",
+    border: "#22d3ee",
+    badge: "NEW",
+  },
+  {
+    name: "Lucky Wheel",
+    category: "SLOT GAME",
+    emoji: "🎪",
+    stars: ["🌟", "💫", "🎊"],
+    bg: "linear-gradient(160deg, #1e0050 0%, #6d28d9 55%, #a78bfa 100%)",
+    border: "#a78bfa",
+  },
+  {
+    name: "Baccarat VIP",
+    category: "TABLE GAME",
+    emoji: "🃏",
+    stars: ["💎", "👑", "🍀"],
+    bg: "linear-gradient(160deg, #1e1b4b 0%, #4338ca 55%, #818cf8 100%)",
+    border: "#818cf8",
   },
 ];
 
 export default function GamesGrid() {
   return (
-    <section
-      id="games"
-      className="py-20 md:py-28 px-4"
-      style={{ background: "#070F1A" }}
-    >
+    <section id="games" className="py-12 px-4" style={{ background: "#070F1A" }}>
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
+
+        {/* Header */}
         <motion.div
-          className="text-center mb-14"
-          initial={{ opacity: 0, y: 30 }}
+          className="text-center mb-10"
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold font-rajdhani text-white mb-3 gold-underline">
+          <h2 className="text-3xl md:text-4xl font-bold font-rajdhani text-white gold-underline">
             Top <span style={{ color: "#F5A800" }}>Games</span>
           </h2>
-          <p className="text-white/45 font-body mt-5 text-sm tracking-wide">
-            Menang Besar setiap hari — 100+ permainan menanti anda!
+          <p className="text-white/40 font-body mt-5 text-sm">
+            🎮 Menang Besar setiap hari — pilih permainan anda!
           </p>
         </motion.div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-4">
           {GAMES.map((game, i) => (
             <motion.div
               key={game.name}
-              className="group relative rounded-2xl overflow-hidden cursor-pointer"
-              initial={{ opacity: 0, y: 40 }}
+              className="game-card cursor-pointer rounded-2xl select-none"
+              style={{
+                background: game.bg,
+                border: `1.5px solid ${game.border}55`,
+                boxShadow: `0 4px 20px ${game.border}30`,
+              }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              whileHover={{ y: -6, transition: { duration: 0.2 } }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.06 }}
+              whileHover={{
+                y: -6,
+                scale: 1.03,
+                boxShadow: `0 12px 35px ${game.border}60`,
+                transition: { duration: 0.2 },
+              }}
             >
-              {/* Animated gradient border wrapper */}
-              <div
-                className="absolute inset-0 rounded-2xl"
-                style={{
-                  padding: "1px",
-                  background: `linear-gradient(135deg, ${game.accent}80, #00AAFF40, ${game.accent}80)`,
-                }}
-              />
-
-              {/* Card inner */}
-              <div
-                className="relative rounded-2xl p-8 flex flex-col items-center text-center min-h-[240px] justify-center transition-all duration-300"
-                style={{ background: "linear-gradient(155deg, #0D1B2E, #0a1220)" }}
-              >
-                {/* Emoji */}
-                <div className="text-6xl mb-4 transition-transform duration-300 group-hover:scale-110 select-none">
-                  {game.emoji}
+              {/* HOT / NEW badge */}
+              {(game.hot || game.badge) && (
+                <div className="absolute top-2 right-2 z-20">
+                  {game.hot && (
+                    <span
+                      className="animate-hot-pulse text-[10px] font-black px-2 py-0.5 rounded-full text-white"
+                      style={{ background: "linear-gradient(135deg,#E84E0F,#FF6B35)" }}
+                    >
+                      🔥 HOT
+                    </span>
+                  )}
+                  {game.badge && (
+                    <span
+                      className="text-[10px] font-black px-2 py-0.5 rounded-full text-white"
+                      style={{ background: "linear-gradient(135deg,#00AAFF,#0077CC)" }}
+                    >
+                      ✨ {game.badge}
+                    </span>
+                  )}
                 </div>
+              )}
 
-                {/* Category badge */}
+              {/* Category badge — left rotated like reference */}
+              <div
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-0.5 z-20"
+                style={{
+                  writingMode: "vertical-rl",
+                  textOrientation: "mixed",
+                  transform: "translateY(-50%) rotate(180deg)",
+                }}
+              >
                 <span
-                  className="text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3 font-body"
-                  style={{
-                    color: game.accent,
-                    background: `${game.accent}18`,
-                    border: `1px solid ${game.accent}35`,
-                  }}
+                  className="text-[9px] font-black tracking-widest px-1.5 py-2 rounded-r-lg text-white/90"
+                  style={{ background: "rgba(0,0,0,0.45)", letterSpacing: "0.15em" }}
                 >
                   {game.category}
                 </span>
-
-                {/* Game name */}
-                <h3 className="text-xl font-bold font-rajdhani text-white mb-1">
-                  {game.name}
-                </h3>
-                <p className="text-white/35 text-xs font-body leading-relaxed">
-                  {game.desc}
-                </p>
-
-                {/* Hover Overlay */}
-                <div
-                  className="absolute inset-0 rounded-2xl flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300"
-                  style={{
-                    background: `radial-gradient(circle at center, ${game.accent}20 0%, ${game.accent}08 100%)`,
-                    backdropFilter: "blur(1px)",
-                  }}
-                >
-                  <a
-                    href="#contact"
-                    className="btn-shimmer px-7 py-3 rounded-xl font-bold font-rajdhani text-base text-dark shadow-lg"
-                    style={{
-                      background: `linear-gradient(135deg, ${game.accent}, ${game.accent}bb)`,
-                      boxShadow: `0 4px 20px ${game.accent}50`,
-                    }}
-                  >
-                    Play Now
-                  </a>
-                </div>
               </div>
 
-              {/* Glow halo on hover */}
-              <div
-                className="absolute inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-400"
-                style={{ boxShadow: `0 0 35px ${game.accent}35` }}
-              />
+              {/* Card body */}
+              <div className="flex flex-col items-center justify-between h-full p-3 pt-5 pb-3" style={{ minHeight: "160px" }}>
+                {/* Floating star decorations */}
+                <div className="flex gap-2 mb-1 opacity-70">
+                  {game.stars.map((s, si) => (
+                    <span
+                      key={si}
+                      className="text-xs animate-star-pop"
+                      style={{ animationDelay: `${si * 0.4}s` }}
+                    >
+                      {s}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Main character emoji */}
+                <div
+                  className="text-5xl md:text-6xl animate-float-up my-1"
+                  style={{ animationDelay: `${i * 0.2}s`, filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.5))" }}
+                >
+                  {game.emoji}
+                </div>
+
+                {/* Bottom overlay with game name + play button */}
+                <div className="w-full mt-2">
+                  <div
+                    className="w-full rounded-xl px-2 py-2 text-center"
+                    style={{ background: "rgba(0,0,0,0.5)", backdropFilter: "blur(4px)" }}
+                  >
+                    <p className="text-white font-bold font-rajdhani text-sm leading-tight truncate">
+                      {game.name}
+                    </p>
+                    <a
+                      href="#contact"
+                      className="btn-shimmer mt-1.5 inline-block w-full text-center text-xs font-black font-rajdhani py-1 rounded-lg text-dark"
+                      style={{ background: `linear-gradient(135deg, #F5A800, #FFD700)` }}
+                    >
+                      PLAY NOW
+                    </a>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           ))}
-        </div>
 
-        {/* View All CTA */}
-        <motion.div
-          className="text-center mt-12"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          <a
+          {/* +More card */}
+          <motion.a
             href="#contact"
-            className="btn-shimmer inline-block px-8 py-3.5 rounded-xl font-bold font-rajdhani text-dark transition-all duration-300 hover:shadow-gold"
-            style={{ background: "linear-gradient(135deg, #F5A800, #FFD700)" }}
+            className="game-card rounded-2xl flex flex-col items-center justify-center cursor-pointer"
+            style={{
+              background: "linear-gradient(160deg, #0D1B2E, #111827)",
+              border: "1.5px dashed rgba(245,168,0,0.3)",
+              minHeight: "160px",
+            }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.55 }}
+            whileHover={{ scale: 1.04, transition: { duration: 0.2 } }}
           >
-            View All Games →
-          </a>
-        </motion.div>
+            <span className="text-4xl animate-wiggle">🎮</span>
+            <p className="text-gold font-bold font-rajdhani text-sm mt-2">100+ Games</p>
+            <p className="text-white/40 text-xs font-body mt-0.5">View All →</p>
+          </motion.a>
+        </div>
       </div>
     </section>
   );

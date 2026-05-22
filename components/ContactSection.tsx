@@ -23,7 +23,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="py-20 md:py-28 px-4"
+      className="py-12 px-4"
       style={{ background: "linear-gradient(180deg, #070F1A 0%, #0D1B2E 100%)" }}
     >
       <div className="max-w-5xl mx-auto">

@@ -3,97 +3,47 @@
 import { motion } from "framer-motion";
 
 const FEATURES = [
-  {
-    icon: "⚡",
-    title: "Fast Withdrawal",
-    desc: "Get your winnings in under 5 minutes. Instant bank transfers 24/7, no delays.",
-  },
-  {
-    icon: "🔒",
-    title: "SSL Secured Platform",
-    desc: "256-bit SSL encryption protects all your data and transactions at all times.",
-  },
-  {
-    icon: "📲",
-    title: "Works on All Devices",
-    desc: "Seamless experience on mobile, tablet, and desktop. No app download needed.",
-  },
-  {
-    icon: "🎧",
-    title: "24/7 Customer Support",
-    desc: "Our expert team is ready to assist you any time, day or night via Telegram.",
-  },
+  { icon: "⚡", title: "Fast Withdrawal", desc: "Under 5 minutes" },
+  { icon: "🔒", title: "SSL Secured",     desc: "256-bit encryption" },
+  { icon: "📲", title: "All Devices",     desc: "Mobile & desktop" },
+  { icon: "🎧", title: "24/7 Support",    desc: "Always here for you" },
 ];
 
 export default function WhyUs() {
   return (
-    <section
-      id="about"
-      className="py-20 md:py-28 px-4"
-      style={{ background: "linear-gradient(180deg, #0A1424 0%, #070F1A 100%)" }}
-    >
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
+    <section id="about" className="py-10 px-4" style={{ background: "#070F1A" }}>
+      <div className="max-w-5xl mx-auto">
         <motion.div
-          className="text-center mb-14"
-          initial={{ opacity: 0, y: 30 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-3"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold font-rajdhani text-white mb-3 gold-underline">
-            Why Choose{" "}
-            <span style={{ color: "#F5A800" }}>Us</span>?
-          </h2>
-          <p className="text-white/45 font-body mt-6 max-w-xl mx-auto text-sm leading-relaxed">
-            Kami komited untuk memberikan pengalaman gaming terbaik — selamat,
-            pantas dan menyeronokkan.
-          </p>
-        </motion.div>
-
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
-          {FEATURES.map((feature, i) => (
+          {FEATURES.map((f, i) => (
             <motion.div
-              key={feature.title}
-              className="group p-8 rounded-2xl text-center transition-all duration-300 cursor-default"
+              key={f.title}
+              className="flex flex-col items-center text-center p-4 rounded-xl"
               style={{
                 background: "linear-gradient(155deg, #0D1B2E, #0a1220)",
-                border: "1px solid rgba(245,168,0,0.1)",
+                border: "1px solid rgba(245,168,0,0.12)",
               }}
-              initial={{ opacity: 0, y: 40 }}
+              whileHover={{ scale: 1.05, y: -3, transition: { duration: 0.2 } }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              whileHover={{
-                scale: 1.04,
-                y: -4,
-                transition: { duration: 0.2 },
-              }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
             >
-              {/* Icon bubble */}
-              <div
-                className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-5 transition-all duration-300 group-hover:shadow-gold"
-                style={{
-                  background: "rgba(245,168,0,0.08)",
-                  border: "1px solid rgba(245,168,0,0.2)",
-                }}
-              >
-                {feature.icon}
-              </div>
-
-              <h3
-                className="text-lg font-bold font-rajdhani mb-3"
-                style={{ color: "#F5A800" }}
-              >
-                {feature.title}
-              </h3>
-              <p className="text-white/50 text-sm font-body leading-relaxed">
-                {feature.desc}
+              <span className="text-3xl mb-2 animate-float-up" style={{ animationDelay: `${i * 0.3}s` }}>
+                {f.icon}
+              </span>
+              <p className="font-bold font-rajdhani text-sm" style={{ color: "#F5A800" }}>
+                {f.title}
               </p>
+              <p className="text-white/45 text-xs font-body mt-0.5">{f.desc}</p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
