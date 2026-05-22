@@ -28,8 +28,8 @@ export default function Hero() {
     <section
       id="home"
       className="relative flex items-center justify-center overflow-hidden"
-      style={{ minHeight: "82vh" }}
       style={{
+        minHeight: "82vh",
         background:
           "radial-gradient(ellipse at 50% 35%, #0D1B2E 0%, #070F1A 65%)",
       }}
